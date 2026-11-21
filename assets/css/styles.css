@@ -1,0 +1,286 @@
+:root {
+    color-scheme: dark;
+    --background: #090909;
+    --gold: #dcb800;
+    --white: #fff;
+    --muted: #bcbab2;
+    --border: #353024;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white);
+    background: var(--background);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    background:
+        radial-gradient(ellipse at 8% 16%, rgb(220 184 0 / 9%), transparent 45%),
+        radial-gradient(ellipse at 92% 100%, rgb(220 184 0 / 6%), transparent 35%),
+        var(--background);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 5px;
+}
+
+.site-shell {
+    width: min(100% - 2.5rem, 69rem);
+    margin-inline: auto;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    min-height: 5.25rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.site-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+.site-brand img {
+    flex: none;
+    display: block;
+}
+
+.league {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4.75rem);
+    padding-block: clamp(2.75rem, 8vw, 6rem);
+}
+
+.league-art {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    aspect-ratio: 1.03;
+    border: 1px solid var(--border);
+    background:
+        radial-gradient(ellipse at 50% 46%, rgb(220 184 0 / 16%), transparent 65%),
+        repeating-linear-gradient(135deg, transparent 0 3px, rgb(255 255 255 / 2%) 3px 4px),
+        linear-gradient(150deg, #18170e, var(--background) 80%);
+}
+
+.league-art::before,
+.league-art::after {
+    position: absolute;
+    width: 28%;
+    aspect-ratio: 1;
+    background: repeating-linear-gradient(135deg, transparent 0 3px, rgb(9 9 9 / 22%) 3px 4px),
+        linear-gradient(135deg, var(--gold), rgb(220 184 0 / 15%));
+    content: "";
+    pointer-events: none;
+}
+
+.league-art::before {
+    inset: 0 auto auto 0;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.league-art::after {
+    inset: auto 0 0 auto;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.pitch {
+    position: absolute;
+    width: 123%;
+    aspect-ratio: 1.55;
+    transform: rotate(-34deg);
+    border: 1px solid rgb(220 184 0 / 25%);
+    background: linear-gradient(90deg, transparent calc(50% - 0.5px), rgb(220 184 0 / 25%) 50%, transparent calc(50% + 0.5px));
+    mask-image: linear-gradient(150deg, transparent 8%, #000 46%, #000 63%, transparent 97%);
+}
+
+.pitch::before,
+.pitch::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: inherit;
+    content: "";
+}
+
+.pitch::before {
+    left: 38%;
+    width: 24%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.pitch::after {
+    right: -1px;
+    width: 19%;
+    height: 55%;
+}
+
+.league-logo {
+    z-index: 1;
+    display: block;
+    width: 77%;
+    height: auto;
+    filter: drop-shadow(0 0.75rem 1.65rem rgb(0 0 0 / 75%));
+}
+
+.league-content {
+    container-type: inline-size;
+}
+
+.league-content h1 {
+    margin: 0;
+    font-size: clamp(1.9rem, 12cqi, 4.2rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.064em;
+    line-height: 0.99;
+}
+
+.league-content h1 span {
+    color: var(--gold);
+}
+
+.league-summary {
+    max-width: 31ch;
+    margin: 1.25rem 0 1.9rem;
+    color: var(--muted);
+    font-size: clamp(1rem, 1.6vw, 1.125rem);
+    line-height: 1.5;
+}
+
+.league-links {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.league-link {
+    display: flex;
+    align-items: center;
+    min-height: 4.3rem;
+    gap: 1rem;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.55rem;
+    background: linear-gradient(115deg, #191810, #111 64%);
+    transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.league-link-primary {
+    border-color: var(--gold);
+    color: var(--background);
+    background: var(--gold);
+}
+
+.link-icon {
+    flex: none;
+    width: 1.55rem;
+    height: 1.55rem;
+    color: var(--gold);
+}
+
+.league-link-primary .link-icon {
+    color: inherit;
+}
+
+.link-text {
+    display: grid;
+    gap: 0.2rem;
+    line-height: 1.2;
+}
+
+.link-text strong {
+    font-size: 1.05rem;
+}
+
+.link-text span {
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+.league-link-primary .link-text span {
+    color: #282100;
+}
+
+@media (hover: hover) {
+    .site-brand:hover {
+        color: var(--gold);
+    }
+
+    .league-link:hover {
+        transform: translateY(-2px);
+        border-color: var(--gold);
+    }
+
+    .league-link-primary:hover {
+        background-color: #efcb12;
+    }
+}
+
+@media (max-width: 49rem) {
+    .site-shell {
+        width: min(100% - 2rem, 32rem);
+    }
+
+    .site-header {
+        min-height: 4rem;
+    }
+
+    .league {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.55rem;
+        padding-block: 1.4rem 2.5rem;
+    }
+
+    .league-art {
+        aspect-ratio: 2.35;
+    }
+
+    .league-art::before,
+    .league-art::after {
+        width: 18%;
+    }
+
+    .league-logo {
+        width: 46%;
+    }
+
+    .pitch {
+        width: 75%;
+    }
+
+    .league-summary {
+        margin-block: 0.85rem 1.3rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .league-link {
+        transition: none;
+    }
+
+    .league-link:hover {
+        transform: none;
+    }
+}

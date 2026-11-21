@@ -1,0 +1,10 @@
+DirectoryIndex index.html
+Options -Indexes
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST} "\s(/(?:[^/?\s][^?\s]*/)?)index\.html(?:[?\s])" [NC]
+RewriteRule ^index\.html$ %1 [R=301,L,NC,NE]
+
+<Files "notes">
+    Require all denied
+</Files>
